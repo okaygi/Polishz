@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,13 +12,11 @@
             text-align: center;
             border-collapse: collapse;
             border-radius: 10px;
-
+            letter-spacing: 2px;
+            padding: 20px;
         }
     </style>
-
-
 </head>
-
 <script type="text/javascript">
     let data = [
         {
@@ -64,8 +61,6 @@
         }
     ]
 </script>
-
-
 <script>
     let correctAnswer = ""
     var questionNo = 0
@@ -77,7 +72,6 @@
         document.getElementById("second").innerHTML = data[questionNo].second
         document.getElementById("third").innerHTML = data[questionNo].third
         correctAnswer = data[questionNo].correct
-
     }
 
     function answer(selectItem) {
@@ -95,14 +89,11 @@
             questionNo++
             getQuestion(questionNo)
             selectItem.style.backgroundColor = "white"
-
         }
     }
 </script>
 
-
 <body onload="getQuestion(questionNo)">
-
     <table style="width:100%" style="height:100%">
         <tr style="width: 200px;" style="height: 200px;">
             <td>
@@ -110,7 +101,7 @@
             </td>
         </tr>
         <tr>
-            <td id="info">Table</td>
+            <td id="info" style="font-weight: bold"></td>
         </tr>
         <tr>
             <td id="first" data-secim="A" onclick="answer(this)">A</td>
@@ -123,5 +114,4 @@
         </tr>
     </table>
 </body>
-
 </html>
