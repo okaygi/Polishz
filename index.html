@@ -21,7 +21,7 @@
     let data = [
         {
             "imageId": "Images/table.png",
-            "info": "Table",
+            "info": "~Table~",
             "first": "tabela",
             "second": "krzesło",
             "third": "widelec",
@@ -29,7 +29,7 @@
         },
         {
             "imageId": "Images/chair.png",
-            "info": "Chair",
+            "info": "~Chair~",
             "first": "nóż",
             "second": "tabela",
             "third": "krzesło",
@@ -37,7 +37,7 @@
         },
         {
             "imageId": "Images/fork.png",
-            "info": "Fork",
+            "info": "~Fork~",
             "first": "widelec",
             "second": "nóż",
             "third": "pachwina",
@@ -45,7 +45,7 @@
         },
         {
             "imageId": "Images/knife.png",
-            "info": "Knife",
+            "info": "~Knife~",
             "first": "pachwina",
             "second": "nóż",
             "third": "krzesło",
@@ -53,7 +53,7 @@
         },
         {
             "imageId": "Images/spoon.png",
-            "info": "Spoon",
+            "info": "~Spoon~",
             "first": "krzesło",
             "second": "pachwina",
             "third": "nóż",
@@ -79,16 +79,25 @@
 
         if (correctAnswer == userAnswer) {
             selectItem.style.backgroundColor = "green"
-            setTimeout(prosto, 500)
         } else {
             selectItem.style.backgroundColor = "red"
-            setTimeout(prosto, 500)
+            if (correctAnswer == "A"){
+                document.getElementById("first").style.backgroundColor="green"
+            } else if (correctAnswer == "B") {
+                document.getElementById("second").style.backgroundColor="green"
+            }
+            else if (correctAnswer == "C"){
+                document.getElementById("third").style.backgroundColor="green"
+            }
         }
+        setTimeout(prosto, 500)
 
         function prosto() {
             questionNo++
             getQuestion(questionNo)
-            selectItem.style.backgroundColor = "white"
+            document.getElementById("first").style.backgroundColor="white"
+            document.getElementById("second").style.backgroundColor="white"
+            document.getElementById("third").style.backgroundColor="white"
         }
     }
 </script>
