@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th,
+        td {
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+            border-radius: 10px;
+
+        }
+    </style>
+
+
+</head>
+
+<script type="text/javascript">
+    let data = [
+        {
+            "imageId": "Images/table.png",
+            "info": "Table",
+            "first": "tabela",
+            "second": "krzesło",
+            "third": "widelec",
+            "correct": "A"
+        },
+        {
+            "imageId": "Images/chair.png",
+            "info": "Chair",
+            "first": "nóż",
+            "second": "tabela",
+            "third": "krzesło",
+            "correct": "C"
+        },
+        {
+            "imageId": "Images/fork.png",
+            "info": "Fork",
+            "first": "widelec",
+            "second": "nóż",
+            "third": "pachwina",
+            "correct": "A"
+        },
+        {
+            "imageId": "Images/knife.png",
+            "info": "Knife",
+            "first": "pachwina",
+            "second": "nóż",
+            "third": "krzesło",
+            "correct": "B"
+        },
+        {
+            "imageId": "Images/spoon.png",
+            "info": "Spoon",
+            "first": "krzesło",
+            "second": "pachwina",
+            "third": "nóż",
+            "correct": "B"
+        }
+    ]
+</script>
+
+
+<script>
+    let correctAnswer = ""
+    var questionNo = 0
+
+    function getQuestion(questionNo) {
+        document.getElementById("imageId").src = data[questionNo].imageId
+        document.getElementById("info").innerHTML = data[questionNo].info
+        document.getElementById("first").innerHTML = data[questionNo].first
+        document.getElementById("second").innerHTML = data[questionNo].second
+        document.getElementById("third").innerHTML = data[questionNo].third
+        correctAnswer = data[questionNo].correct
+
+    }
+
+    function answer(selectItem) {
+        userAnswer = selectItem.getAttribute("data-secim")
+
+        if (correctAnswer == userAnswer) {
+            selectItem.style.backgroundColor = "green"
+            setTimeout(prosto, 500)
+        } else {
+            selectItem.style.backgroundColor = "red"
+            setTimeout(prosto, 500)
+        }
+
+        function prosto() {
+            questionNo++
+            getQuestion(questionNo)
+            selectItem.style.backgroundColor = "white"
+
+        }
+    }
+</script>
+
+
+<body onload="getQuestion(questionNo)">
+
+    <table style="width:100%" style="height:100%">
+        <tr style="width: 200px;" style="height: 200px;">
+            <td>
+                <image id="imageId" src="" width="200" height="300"></image>
+            </td>
+        </tr>
+        <tr>
+            <td id="info">Table</td>
+        </tr>
+        <tr>
+            <td id="first" data-secim="A" onclick="answer(this)">A</td>
+        </tr>
+        <tr>
+            <td id="second" data-secim="B" onclick="answer(this)">B</td>
+        </tr>
+        <tr>
+            <td id="third" data-secim="C" onclick="answer(this)">C</td>
+        </tr>
+    </table>
+</body>
+
+</html>
