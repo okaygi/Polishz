@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,49 +16,70 @@
             letter-spacing: 2px;
             padding: 20px;
         }
+
+        .hidden {
+            visibility: hidden;
+            text-align: center;
+        }
     </style>
 </head>
 <script type="text/javascript">
     let data = [
         {
-            "imageId": "Images/table.png",
-            "info": "~Table~",
-            "first": "tabela",
-            "second": "krzesło",
-            "third": "widelec",
-            "correct": "A"
+            "imageId": "img/left.jpg",
+            "info": "~Left~",
+            "first": "Prosto",
+            "second": "Lewo",
+            "third": "Prawo",
+            "correct": "b"
         },
         {
-            "imageId": "Images/chair.png",
-            "info": "~Chair~",
-            "first": "nóż",
-            "second": "tabela",
-            "third": "krzesło",
-            "correct": "C"
+            "imageId": "img/right.jpg",
+            "info": "~Right~",
+            "first": "Prosto",
+            "second": "Przejść",
+            "third": "Prawo",
+            "correct": "c"
         },
         {
-            "imageId": "Images/fork.png",
-            "info": "~Fork~",
-            "first": "widelec",
-            "second": "nóż",
-            "third": "pachwina",
-            "correct": "A"
+            "imageId": "img/go past.png",
+            "info": "~Go Past~",
+            "first": "Przekroczyć drogę",
+            "second": "Nóż",
+            "third": "Przejść obok",
+            "correct": "a"
         },
         {
-            "imageId": "Images/knife.png",
-            "info": "~Knife~",
-            "first": "pachwina",
-            "second": "nóż",
-            "third": "krzesło",
-            "correct": "B"
+            "imageId": "img/cross the road.png",
+            "info": "~Cross The Road~",
+            "first": "Przekroczyć drogę",
+            "second": "Przejść obok",
+            "third": "Krzesło",
+            "correct": "b"
         },
         {
-            "imageId": "Images/spoon.png",
-            "info": "~Spoon~",
-            "first": "krzesło",
-            "second": "pachwina",
-            "third": "nóż",
-            "correct": "B"
+            "imageId": "img/stop.jpg",
+            "info": "~Stop~",
+            "first": "Uwaga",
+            "second": "Pachwina",
+            "third": "Przestawać",
+            "correct": "c"
+        },
+        {
+            "imageId": "img/caution.jpg",
+            "info": "~Caution~",
+            "first": "Przestawać",
+            "second": "Uwaga",
+            "third": "Wieczór",
+            "correct": "b"
+        },
+        {
+            "imageId": "img/",
+            "info": "~~",
+            "first": "",
+            "second": "",
+            "third": "",
+            "correct": ""
         }
     ]
 </script>
@@ -71,6 +93,7 @@
         document.getElementById("first").innerHTML = data[questionNo].first
         document.getElementById("second").innerHTML = data[questionNo].second
         document.getElementById("third").innerHTML = data[questionNo].third
+
         correctAnswer = data[questionNo].correct
     }
 
@@ -81,24 +104,25 @@
             selectItem.style.backgroundColor = "green"
         } else {
             selectItem.style.backgroundColor = "red"
-            if (correctAnswer == "A"){
-                document.getElementById("first").style.backgroundColor="green"
+            if (correctAnswer == "A") {
+                document.getElementById("first").style.backgroundColor = "green"
             } else if (correctAnswer == "B") {
-                document.getElementById("second").style.backgroundColor="green"
+                document.getElementById("second").style.backgroundColor = "green"
             }
-            else if (correctAnswer == "C"){
-                document.getElementById("third").style.backgroundColor="green"
+            else if (correctAnswer == "C") {
+                document.getElementById("third").style.backgroundColor = "green"
             }
         }
-        setTimeout(prosto, 500)
-
-        function prosto() {
-            questionNo++
-            getQuestion(questionNo)
-            document.getElementById("first").style.backgroundColor="white"
-            document.getElementById("second").style.backgroundColor="white"
-            document.getElementById("third").style.backgroundColor="white"
-        }
+        //setTimeout(prosto, 500)
+        document.getElementById("hidden").style.visibility = "visible"
+    }
+    function prosto() {
+        questionNo++
+        getQuestion(questionNo)
+        document.getElementById("first").style.backgroundColor = "white"
+        document.getElementById("second").style.backgroundColor = "white"
+        document.getElementById("third").style.backgroundColor = "white"
+        document.getElementById("hidden").style.visibility = "hidden"
     }
 </script>
 
@@ -113,14 +137,18 @@
             <td id="info" style="font-weight: bold"></td>
         </tr>
         <tr>
-            <td id="first" data-secim="A" onclick="answer(this)">A</td>
+            <td id="first" data-secim="a" onclick="answer(this)">A</td>
         </tr>
         <tr>
-            <td id="second" data-secim="B" onclick="answer(this)">B</td>
+            <td id="second" data-secim="b" onclick="answer(this)">B</td>
         </tr>
         <tr>
-            <td id="third" data-secim="C" onclick="answer(this)">C</td>
+            <td id="third" data-secim="c" onclick="answer(this)">C</td>
         </tr>
     </table>
+    <div align="center" class="hidden">
+        <img src="img/next.png" width="100" height="100" id="hidden" onclick="prosto(this)">
+    </div>
 </body>
+
 </html>
