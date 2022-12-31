@@ -21,6 +21,7 @@
             visibility: hidden;
             text-align: center;
         }
+
     </style>
 </head>
 <script type="text/javascript">
@@ -102,19 +103,13 @@
 
         if (correctAnswer == userAnswer) {
             selectItem.style.backgroundColor = "green"
+            document.getElementById("hidden").style.visibility = "visible"
         } else {
             selectItem.style.backgroundColor = "red"
-            if (correctAnswer == "a") {
-                document.getElementById("first").style.backgroundColor = "green"
-            } else if (correctAnswer == "b") {
-                document.getElementById("second").style.backgroundColor = "green"
-            }
-            else if (correctAnswer == "c") {
-                document.getElementById("third").style.backgroundColor = "green"
-            }
+
         }
         //setTimeout(prosto, 500)
-        document.getElementById("hidden").style.visibility = "visible"
+
     }
     function prosto() {
         questionNo++
@@ -130,7 +125,7 @@
     <table style="width:100%" style="height:100%">
         <tr style="width: 200px;" style="height: 200px;">
             <td>
-                <image id="imageId" src="" width="200" height="300"></image>
+                <image id="imageId" src="" width="300" height="300"></image>
             </td>
         </tr>
         <tr>
@@ -146,7 +141,7 @@
             <td id="third" data-secim="c" onclick="answer(this)">C</td>
         </tr>
     </table>
-    <div align="center" class="hidden">
+    <div class="hidden">
         <img src="img/next.png" width="100" height="100" id="hidden" onclick="prosto(this)">
     </div>
 </body>
