@@ -22,6 +22,9 @@
             text-align: center;
         }
 
+        .info {
+            border: 0px white;
+        }
     </style>
 </head>
 <script type="text/javascript">
@@ -44,11 +47,11 @@
         },
         {
             "imageId": "img/go past.png",
-            "info": "~Go Past~",
+            "info": "~Straight~",
             "first": "Przekroczyć drogę",
             "second": "Nóż",
-            "third": "Przejść obok",
-            "correct": "a"
+            "third": "Prosto",
+            "correct": "c"
         },
         {
             "imageId": "img/cross the road.png",
@@ -56,7 +59,7 @@
             "first": "Przekroczyć drogę",
             "second": "Przejść obok",
             "third": "Krzesło",
-            "correct": "b"
+            "correct": "a"
         },
         {
             "imageId": "img/stop.jpg",
@@ -122,14 +125,14 @@
 </script>
 
 <body onload="getQuestion(questionNo)">
-    <table style="width:100%" style="height:100%">
+    <table style="width:70%" style="height:70%" align="center">
         <tr style="width: 200px;" style="height: 200px;">
-            <td>
+            <td class="info">
                 <image id="imageId" src="" width="300" height="300"></image>
             </td>
         </tr>
         <tr>
-            <td id="info" style="font-weight: bold"></td>
+            <td id="info" class="info" style="font-weight: bold"></td>
         </tr>
         <tr>
             <td id="first" data-secim="a" onclick="answer(this)">A</td>
