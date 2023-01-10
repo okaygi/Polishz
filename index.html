@@ -7,14 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polishz v1</title>
     <style>
-        th,
-        td {
+        th,td {
             border: 1px solid black;
             text-align: center;
             border-collapse: collapse;
             border-radius: 10px;
             letter-spacing: 2px;
             padding: 20px;
+        }
+        
+        .selectHover:hover {
+            background-color: rgb(255, 255, 212);
         }
 
         .hidden {
@@ -143,18 +146,19 @@
             <td id="info" class="info" style="font-weight: bold"></td>
         </tr>
         <tr>
-            <td id="first" data-secim="a" onclick="answer(this)">A</td>
+            <td id="first" class="selectHover" data-secim="a" onclick="answer(this)">A</td>
         </tr>
         <tr>
-            <td id="second" data-secim="b" onclick="answer(this)">B</td>
+            <td id="second" class="selectHover" data-secim="b" onclick="answer(this)">B</td>
         </tr>
         <tr>
-            <td id="third" data-secim="c" onclick="answer(this)">C</td>
+            <td id="third" class="selectHover" data-secim="c" onclick="answer(this)">C</td>
         </tr>
     </table>
     <div class="hidden">
         <img src="img/next.png" width="100" height="100" id="hidden" onclick="prosto(this)">
     </div>
+
 </body>
 
 </html>
